@@ -1,0 +1,2 @@
+editors/emacs/SubstKey.cmo : src/unicodelib/UTF8.cmo
+editors/emacs/SubstKey.cmx : src/unicodelib/UTF8.cmx

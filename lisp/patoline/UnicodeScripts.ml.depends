@@ -1,0 +1,4 @@
+editors/emacs/UnicodeScripts.cmo : src/unicodelib/UTF8.cmo \
+    src/unicodelib/UChar.cmo
+editors/emacs/UnicodeScripts.cmx : src/unicodelib/UTF8.cmx \
+    src/unicodelib/UChar.cmx

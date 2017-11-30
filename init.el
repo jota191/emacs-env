@@ -2,10 +2,15 @@
 (load "~/.emacs.d/lisp/superEval/supereval")
 
 (load "~/.emacs.d/lisp/pretty/pretty-mode")
+(load "~/.emacs.d/lisp/patoline/patoline-mode")
+
+;;agda input
+(load "/usr/share/emacs/site-lisp/elpa-src/agda2-mode-2.5.1/agda2-mode")
 
 
-;(load "/usr/share/emacs/site-lisp/proofgeneral/generic/proof-site")
-(add-to-list 'load-path "~/.emacs.d/lisp/")
+
+;(add-to-list 'load-path "~/.emacs.d/lisp/")
+;(load "patoline-mode")
 
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (add-hook 'haskell-mode-hook 'turn-on-pretty-mode)
