@@ -4,10 +4,14 @@
 (load "~/.emacs.d/lisp/pretty/pretty-mode")
 (load "~/.emacs.d/lisp/patoline/patoline-mode")
 
+(load "~/.emacs.d/lisp/column-marker/column-marker")
+
 ;;agda input
 (load "/usr/share/emacs/site-lisp/elpa-src/agda2-mode-2.5.1/agda2-mode")
 
-
+;;; col marker
+(add-hook 'prog-mode-hook (lambda () (interactive) (column-marker-2 76)))
+(add-hook 'prog-mode-hook (lambda () (interactive) (column-marker-3 79)))
 
 ;(add-to-list 'load-path "~/.emacs.d/lisp/")
 ;(load "patoline-mode")
@@ -28,8 +32,7 @@
  '(column-number-mode t)
  '(indent-tabs-mode nil)
  '(line-number-mode t)
- '(tool-bar-mode nil)
- )
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
