@@ -38,28 +38,27 @@ There are two things you can do about this warning:
  ;; If there is more than one, they won't work right.
  )
 
+
+;; MateFun
 (add-to-list 'load-path "~/.emacs.d/lisp/matefun")
-(add-to-list 'load-path "~/.emacs.d/lisp/")
 (load "matefun-mode")
 
+;; PML
 (add-to-list 'load-path "~/.emacs.d/lisp/pml")
 (load "pml-mode")
 
+;; for Coq
 (defun opam-env ()
   (interactive nil)
   (dolist (var (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
     (setenv (car var) (cadr var))))
-
 (defun opam-env ()
   (interactive nil)
   (dolist (var (car (read-from-string (shell-command-to-string "$eval (opam env)"))))
     (setenv (car var) (cadr var))))
 
 
-
-(set-background-color "gray5")
-
-;(add-hook 'coq-mode-hook #'company-coq-mode)
+(set-background-color "gray0")
 
 (add-hook 'coq-mode-hook #'company-coq-mode)
 ;; (add-hook 'coq-mode-hook
@@ -85,7 +84,7 @@ There are two things you can do about this warning:
   ("tau" . ?τ) ("upsilon" . ?υ) ("phi" . ?φ)
   ("chi" . ?χ) ("psi" . ?ψ) ("omega" . ?ω))
 
-
+;; Haskell
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (add-hook 'haskell-mode-hook 'hindent-mode)
 
@@ -96,8 +95,6 @@ There are two things you can do about this warning:
 (setq-default auto-complete-mode t)
 (setq-default indent-tabs-mode nil)
 
-;(add-hook 'prog-mode-hook 'linum-mode)
 (add-hook 'prog-mode-hook 'column-number-mode)
 (add-hook 'prog-mode-hook 'auto-complete-mode)
-
 (global-display-line-numbers-mode)
