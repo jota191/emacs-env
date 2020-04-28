@@ -4,33 +4,40 @@
                     (not (gnutls-available-p))))
        (proto (if no-ssl "http" "https")))
   (when no-ssl
-    (warn "\
-Your version of Emacs does not support SSL connections,
-which is unsafe because it allows man-in-the-middle attacks.
-There are two things you can do about this warning:
+    (warn "\ Your version of Emacs does not support SSL
+connections, which is unsafe because it allows man-in-the-middle
+attacks.  There are two things you can do about this warning:
 1. Install an Emacs version that does support SSL and be safe.
-2. Remove this warning from your init file so you won't see it again."))
-  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
-  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+2. Remove this warning from your init file so you won't see it
+again."))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and
+  ;; MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat
+  proto "://melpa.org/packages/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto
+  ;;"://stable.melpa.org/packages/")) t)
   (when (< emacs-major-version 24)
     ;; For important compatibility libraries like cl-lib
-    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))
-    (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")))))
+    (add-to-list 'package-archives (cons "gnu" (concat
+    proto "://elpa.gnu.org/packages/")))
+    (add-to-list 'package-archives (cons "melpa" (concat
+    proto "://melpa.org/packages/")))))
 (package-initialize)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(ansi-color-names-vector
-   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(ansi-color-faces-vector [default default default italic
+ underline success warning error]) '(ansi-color-names-vector
+          ["#242424" "#e5786d" "#95e454" "#cae682"
+           "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes (quote (tsdh-dark)))
  '(package-selected-packages
    (quote
-    (markdown-mode flyspell-popup go-mode telega haskell-emacs tuareg z3-mode idris-mode company-coq php-mode proof-general auto-complete haskell-mode matefun-mode))))
+    (markdown-mode flyspell-popup go-mode telega haskell-emacs
+    tuareg z3-mode idris-mode company-coq php-mode proof-general
+    auto-complete haskell-mode matefun-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -50,11 +57,13 @@ There are two things you can do about this warning:
 ;; for Coq
 (defun opam-env ()
   (interactive nil)
-  (dolist (var (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
+  (dolist (var (car (read-from-string
+       (shell-command-to-string "opam config env --sexp"))))
     (setenv (car var) (cadr var))))
 (defun opam-env ()
   (interactive nil)
-  (dolist (var (car (read-from-string (shell-command-to-string "$eval (opam env)"))))
+  (dolist (var (car (read-from-string
+       (shell-command-to-string "$eval (opam env)"))))
     (setenv (car var) (cadr var))))
 
 
@@ -64,8 +73,12 @@ There are two things you can do about this warning:
 ;; (add-hook 'coq-mode-hook
 ;;           (lambda ()
 ;;             (setq-local prettify-symbols-alist
-;;                         '((":=" . ?≜) ("Proof." . ?∵) ("Qed." . ?■)
-;;                           ("Defined." . ?□) ("Time" . ?⏱) ("Admitted." . ?😱)))))
+;;                         '((":=". ?≜)
+;;                           ("Proof." . ?∵)
+;;                           ("Qed." . ?■)
+;;                           ("Defined." . ?□)
+;;                           ("Time" . ?⏱)
+;;                           ("Admitted." . ?😱)))))
 
 '(("Alpha" . ?Α) ("Beta" . ?Β) ("Gamma" . ?Γ)
   ("Delta" . ?Δ) ("Epsilon" . ?Ε) ("Zeta" . ?Ζ)
